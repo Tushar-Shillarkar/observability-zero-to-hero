@@ -13,22 +13,26 @@ spec:
     - matchers:
       - name: alertname
         value: HighCpuUsage
+        matchType: "="
       receiver: 'send-email'
     - matchers:
       - name: alertname
         value: PodRestart
+        matchType: "="
       receiver: 'send-email'
       repeatInterval: 5m
   receivers:
   - name: 'send-email'
     emailConfigs:
-    - to: YOUR_EMAIL_ID
-      from: YOUR_EMAIL_ID
+    - to: tusharshillarkar@gmail.com
+      from: tusharshillarkar@gmail.com
       sendResolved: false
       smarthost: smtp.gmail.com:587
+      requireTLS: true
       authUsername: tusharshillarkar@gmail.com
       authIdentity: tusharshillarkar@gmail.com
       authPassword:
         name: mail-pass
         key: gmail-pass
   - name: 'null'
+  
